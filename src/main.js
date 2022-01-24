@@ -59,4 +59,68 @@ const hasFusca = cars.some((car) => {
 
 console.log(hasFusca)
 
+// ---------------------- arrow function ----------------------
 
+const task = [
+    { text: 'Vender doces', done: false },
+    { text: 'Lavar a louça', done: true },
+    { text: 'Pasear com o cachorro', done: true }
+]
+
+const filterTodos = task.filter((todo) => todo.done) 
+
+console.log(filterTodos)
+
+const anything = () => ({name: 'Eduardo', idade: 17})
+
+console.log(anything())
+
+// ---------------------- Parâmetro padrão ----------------------
+
+const sayHello = (name = 'Fulano') => console.log('Olá ' + name);
+
+sayHello()
+
+// ---------------------- Object Short Syntax ----------------------
+
+const name = 'Camisa'
+const price = 50
+
+const product = {
+    name,
+    price,
+    inStock: true
+}
+
+console.log(product)
+
+// ---------------------- Desestruturação (arrays e objetos) ----------------------
+
+const fruits = ['Banana', 'Maça', 'Uva']
+
+const [b, , u] = fruits
+
+console.log(b, u)
+
+
+const person = {
+    firstName: 'Edaurdo',
+    secondName: 'Moraes',
+    age: 17,
+    address: {
+        city: 'Goiabal',
+        region: 'MG'
+    },
+}
+
+const { firstName, secondName, address: { city } } = person
+
+console.log(firstName, secondName, city)
+
+
+// função com desestruturação
+const showFullName = ({ firstName, secondName }) => {
+    console.log(`${firstName} ${secondName}`)
+}
+
+showFullName(person)
