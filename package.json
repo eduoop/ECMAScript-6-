@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "babel ./src/main.js -o ./public/bundle.js -w"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/eduoop/ECMAScript-6-/issues"
   },
-  "homepage": "https://github.com/eduoop/ECMAScript-6-#readme"
+  "homepage": "https://github.com/eduoop/ECMAScript-6-#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.16.8",
+    "@babel/core": "^7.16.12",
+    "@babel/preset-env": "^7.16.11"
+  }
 }
