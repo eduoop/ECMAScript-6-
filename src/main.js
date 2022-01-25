@@ -124,3 +124,54 @@ const showFullName = ({ firstName, secondName }) => {
 }
 
 showFullName(person)
+
+// ---------------------- Operadores rest ----------------------
+
+const numms = [1, 2, 3, 4, 5]
+
+const [first, second, ...rest] = numms
+
+console.log(rest)
+
+
+const pessoa = {
+    nome: 'Eduardo',
+    segundoNome: 'Moraes',
+    idade: 17, 
+    trabalho: true
+}
+
+const { nome, ...resto } = pessoa
+console.log( resto )
+
+
+const sum = (...parametros) => {
+    return parametros.reduce((all, proxima) => all + proxima)
+}
+
+console.log(sum(4, 5, 6, 7, 1))
+
+// spread
+
+const allnumbs1 = [1, 2, 3, 4] 
+const allnumbs2 = [5, 6, 7, 8] 
+
+const allnumbs = [...allnumbs1, ...allnumbs2]
+
+console.log(allnumbs)
+
+const pessoa2 = {
+    nome2: 'Eduardo',
+    segundoNome2: 'Moraes',
+    idade2: 17, 
+    trabalho2: true
+}
+const pessoa3 = {
+    ...pessoa2,
+    trabalho2: false
+}
+
+console.log(pessoa3)
+
+
+

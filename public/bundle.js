@@ -1,5 +1,15 @@
 "use strict";
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
 //  ---------------------- map() && forEach()  ----------------------
 var numbs = [1, 2, 3, 4, 5];
 numbs.forEach(function (item, index) {
@@ -110,4 +120,50 @@ var showFullName = function showFullName(_ref) {
   console.log("".concat(firstName, " ").concat(secondName));
 };
 
-showFullName(person);
+showFullName(person); // ---------------------- Operadores rest ----------------------
+
+var numms = [1, 2, 3, 4, 5];
+var first = numms[0],
+    second = numms[1],
+    rest = numms.slice(2);
+console.log(rest);
+var pessoa = {
+  nome: 'Eduardo',
+  segundoNome: 'Moraes',
+  idade: 17,
+  trabalho: true
+};
+
+var nome = pessoa.nome,
+    resto = _objectWithoutProperties(pessoa, ["nome"]);
+
+console.log(resto);
+
+var sum = function sum() {
+  for (var _len = arguments.length, parametros = new Array(_len), _key = 0; _key < _len; _key++) {
+    parametros[_key] = arguments[_key];
+  }
+
+  return parametros.reduce(function (all, proxima) {
+    return all + proxima;
+  });
+};
+
+console.log(sum(4, 5, 6, 7, 1)); // spread
+
+var allnumbs1 = [1, 2, 3, 4];
+var allnumbs2 = [5, 6, 7, 8];
+var allnumbs = [].concat(allnumbs1, allnumbs2);
+console.log(allnumbs);
+var pessoa2 = {
+  nome2: 'Eduardo',
+  segundoNome2: 'Moraes',
+  idade2: 17,
+  trabalho2: true
+};
+
+var pessoa3 = _objectSpread(_objectSpread({}, pessoa2), {}, {
+  trabalho2: false
+});
+
+console.log(pessoa3);
